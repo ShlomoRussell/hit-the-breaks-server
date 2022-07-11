@@ -1,6 +1,7 @@
 import Joi from "joi";
 
 function validateRegisterMiddleware(req, res, next) {
+    console.log(req.body);
   const registerSchema = Joi.object({
     email: Joi.string().email({ minDomainSegments: 2 }).required(),
     username: Joi.string().min(3).max(40).required(),

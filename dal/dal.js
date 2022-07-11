@@ -6,7 +6,7 @@ const pool = createPool({
   connectionLimit: 100, //important
   host: process.env.DATABASE_HOST,
   user: process.env.DATABASE_USERNAME,
-  password: process.env.DATABASE_PASSWORD,
+  password: process.env.DATABASE_PASSWORD||"",
   database: process.env.DATABASE_NAME,
   debug: false,
 });

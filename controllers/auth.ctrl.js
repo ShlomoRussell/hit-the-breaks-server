@@ -33,7 +33,7 @@ auth.post("/register", validateRegisterMiddleware, async (req, res) => {
       id: uuidv4(),
       password: hash,
     });
-
+console.log(newUser)
     if (newUser) {
       const token = jwt.sign(
         { username: newUser.username, id: newUser.id },
