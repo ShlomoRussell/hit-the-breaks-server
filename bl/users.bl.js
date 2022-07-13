@@ -33,7 +33,6 @@ async function getUserById(payload) {
 
 async function addUser(payload) {
   const newUser = new UserModel(...Object.values(payload));
-  console.log(newUser)
   const sql = "CALL `ADD_USER`(?, ?, ?, ?, ?, ?);";
   try {
     await runQuery(sql,Object.values(newUser));

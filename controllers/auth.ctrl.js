@@ -19,6 +19,8 @@ auth.get("/user", jwtMiddleware, async (req, res) => {
   const token = req.headers.authorization.split(" ")[1];
   try {
     const user = await getUserById(id);
+    console.log(user)
+    delete user.password
     return res.send({ ...user, token });
   } catch (error) {
     return res.sendStatus(500);
@@ -33,7 +35,7 @@ auth.post("/register", validateRegisterMiddleware, async (req, res) => {
       id: uuidv4(),
       password: hash,
     });
-console.log(newUser)
+
     if (newUser) {
       const token = jwt.sign(
         { username: newUser.username, id: newUser.id },

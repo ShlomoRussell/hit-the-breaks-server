@@ -85,7 +85,6 @@ vacations.delete("/:vacationId", async (req, res) => {
 vacations.use("/", validatedVacationMiddleware);
 
 vacations.post("/", async (req, res) => {
-  console.log(req.body)
   let newFileName;
   if (req.files) {
     const uploadedfile = req.files.picture;
