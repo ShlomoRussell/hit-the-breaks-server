@@ -14,7 +14,7 @@ dotenv.config();
 const auth = Router();
 const saltRounds = 10;
 
-auth.get("/user", jwtMiddleware, async (req, res) => {
+auth.get("/user/refresh", jwtMiddleware, async (req, res) => {
   const id = req.headers.id;
   const token = req.headers.authorization.split(" ")[1];
   try {
